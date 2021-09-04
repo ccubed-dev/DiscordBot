@@ -27,8 +27,13 @@ async function execute(member) {
         await member.roles.add(roleId);
     logger.debug("Given new member join roles!");
 
-    await sendWelcomeMessage(member);
-    logger.debug("Sent new member welcome DM!");
+    try {
+        await sendWelcomeMessage(member);
+        logger.debug("Sent new member welcome DM!");
+
+    } catch (error) {
+        logger.error("Couldn't send welcome DM to new member!");
+    }
 }
 
 async function sendWelcomeMessage(member) {

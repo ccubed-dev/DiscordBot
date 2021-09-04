@@ -192,7 +192,13 @@ function handleCommands() {
         for (const command of commands) {
             if (command.data.name == input) {
                 logger.debug("Processing command: " + command.data.name);
-                command.execute(interaction);
+                try {
+                    command.execute(interaction);
+
+                } catch (error) {
+                    logger.error("Failed while executing command: " + command.data.name);
+                }
+
                 break;
 
             } else
