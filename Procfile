@@ -1,1 +1,1 @@
-worker: chmod +x start.sh && ./start.sh
+worker: npm start
